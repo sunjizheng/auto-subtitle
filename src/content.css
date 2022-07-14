@@ -1,0 +1,31 @@
+.autosub-capture-btn {
+    cursor: pointer;
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-size:32px;
+    z-index: 99999;
+    position: fixed;
+    opacity: 0.3;
+    padding:0px;
+    border:0px;
+    margin:0px;
+}
+
+.autosub-capture-btn {
+    background-image:url("chrome-extension://__MSG_@@extension_id__/icons/autosubx32.png");
+}
+
+@supports (-moz-appearance:none) {
+    .autosub-capture-btn {
+        background-image:url("moz-extension://__MSG_@@extension_id__/icons/autosubx32.png");
+    }    
+}
+
+.autosub-capture-btn:hover {
+    opacity: 1 !important;
+}
+
+.autosub-capture-btn-hover {
+    opacity:1 !important;
+}

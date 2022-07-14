@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="jquery-ui.css">
+  <link rel="stylesheet" href="notify-metro.css">
+  <link rel="stylesheet" href="video-js.css">
+  <link rel="stylesheet" href="video_player.css">
+</head>
+
+<body>
+  <template id="player">
+    <div>
+      <div class="settings-button">
+	  	<!--button id="btn_editor" class="icon_btn" title="Edit">
+          <svg fill="burlywood" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" width="26px" height="26px">
+			<path d="M28.91,23.38,18.62,13.09a3,3,0,0,0-2.88-.79l-9.4,2.46A3,3,0,0,0,4.1,17.69a58.28,58.28,0,0,1-4,21.62,2,2,0,0,0,2.56,2.56,58.28,58.28,0,0,1,21.62-4,3,3,0,0,0,2.93-2.24l2.46-9.4A3,3,0,0,0,28.91,23.38Zm-10,5.42a4,4,0,1,1,0-5.66A4,4,0,0,1,18.86,28.8Z"/>
+			<rect xmlns="http://www.w3.org/2000/svg" class="a" x="19.35" y="5.12" width="23" height="12.05" rx="3" ry="3" transform="translate(16.92 -18.55) rotate(45)"/>
+          </svg>
+        </button-->
+        <button id="btn_settings" class="icon_btn" title="Options">
+          <svg fill="burlywood" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" width="26px" height="26px">
+            <path
+              d="M 11.46875 0.96875 L 10.90625 4.53125 C 10.050781 4.742188 9.234375 5.058594 8.5 5.5 L 5.5625 3.40625 L 3.4375 5.53125 L 5.5 8.46875 C 5.054688 9.207031 4.714844 10.015625 4.5 10.875 L 0.96875 11.46875 L 0.96875 14.46875 L 4.5 15.09375 C 4.714844 15.953125 5.054688 16.761719 5.5 17.5 L 3.40625 20.4375 L 5.53125 22.5625 L 8.46875 20.5 C 9.203125 20.941406 10.019531 21.257813 10.875 21.46875 L 11.46875 25.03125 L 14.46875 25.03125 L 15.125 21.46875 C 15.976563 21.253906 16.769531 20.914063 17.5 20.46875 L 20.46875 22.5625 L 22.59375 20.4375 L 20.46875 17.5 C 20.90625 16.769531 21.257813 15.972656 21.46875 15.125 L 25.03125 14.46875 L 25.03125 11.46875 L 21.46875 10.875 C 21.257813 10.027344 20.90625 9.230469 20.46875 8.5 L 22.5625 5.53125 L 20.4375 3.40625 L 17.5 5.53125 C 16.769531 5.089844 15.949219 4.746094 15.09375 4.53125 L 14.46875 0.96875 Z M 13 6.46875 C 16.605469 6.46875 19.53125 9.394531 19.53125 13 C 19.53125 16.605469 16.605469 19.53125 13 19.53125 C 9.394531 19.53125 6.46875 16.601563 6.46875 13 C 6.46875 9.398438 9.394531 6.46875 13 6.46875 Z M 13 8.0625 C 10.28125 8.0625 8.0625 10.28125 8.0625 13 C 8.0625 15.71875 10.28125 17.9375 13 17.9375 C 15.71875 17.9375 17.9375 15.71875 17.9375 13 C 17.9375 10.28125 15.71875 8.0625 13 8.0625 Z M 12.96875 10.9375 C 14.113281 10.9375 15.0625 11.851563 15.0625 13 C 15.0625 14.144531 14.113281 15.0625 12.96875 15.0625 C 11.824219 15.0625 10.90625 14.144531 10.90625 13 C 10.90625 11.851563 11.824219 10.9375 12.96875 10.9375 Z" />
+          </svg>
+        </button>
+      </div>
+      <hr />
+      <div class="show-border">
+        <div id="poster" style="display: none;">
+          <p class="i18n" data-i18n="subtitle_generated">Subtitles are being generated...</p>
+        </div>
+        <video id="dst" class="vcenter video-js vjs-default-skin vjs-big-play-centered vjs-4-3" autoplay controls></video>
+      </div>
+    </div>
+  </template>
+
+  <template id="language">
+    <div class="container">
+      <h3 class="i18n" data-i18n="select_provider">
+        Select AI service provider and languages.
+      </h3>
+      <div id="tabs">
+        <ul>
+          <li><a href="#tabs-gcp" class="i18n" data-i18n="gcp"><img class="cloud-icons"
+                src="/icons/google-cloud-x64.png">Google Cloud Platform</a>
+          <li><a href="#tabs-aws" class="i18n" data-i18n="aws"><img class="cloud-icons" src="/icons/aws-x64.png">Amazon Web Services</a></li>
+        </ul>
+        <div id="tabs-gcp">
+          <p>
+            <label for="speech-language-0" class="c150pr i18n" data-i18n="lang_video">Language of video: </label>
+            <select id="speech-language-0" style="direction: ltr;">
+              <option value="af-ZA">Afrikaans (South Africa)</option>
+              <option value="sq-AL">Shqiptare-Albanian (Albania)</option>
+              <option value="am-ET">አማርኛ-Amharic (Ethiopia)</option>
+              <option value="ar-DZ"><span style="direction: rtl;">العربية (الجزائر)</span>-Arabic (Algeria)</option>
+              <option value="ar-BH"><span style="direction: rtl;">العربية (البحرين)</span>-Arabic (Bahrain)</option>
+              <option value="ar-EG"><span style="direction: rtl;">العربية (مصر)</span>-Arabic (Egypt)</option>
+              <option value="ar-IQ"><span style="direction: rtl;">العربية (العراق)</span>-Arabic (Iraq)</option>
+              <option value="ar-IL"><span style="direction: rtl;">العربية (إسرائيل)</span>-Arabic (Israel)</option>
+              <option value="ar-JO"><span style="direction: rtl;">العربية (الأردن)</span>-Arabic (Jordan)</option>
+              <option value="ar-KW"><span style="direction: rtl;">العربية (الكويت)</span>-Arabic (Kuwait)</option>
+              <option value="ar-LB"><span style="direction: rtl;">العربية (لبنان)</span>-Arabic (Lebanon)</option>
+              <option value="ar-MA"><span style="direction: rtl;">العربية (المغرب)</span>-Arabic (Morocco)</option>
+              <option value="ar-OM"><span style="direction: rtl;">العربية (عمان)</span>-Arabic (Oman)</option>
+              <option value="ar-QA"><span style="direction: rtl;">العربية (قطر)</span>-Arabic (Qatar)</option>
+              <option value="ar-SA"><span style="direction: rtl;">العربية (المملكة العربية السعودية)</span>-Arabic
+                (Saudi Arabia)</option>
+              <option value="ar-PS"><span style="direction: rtl;">العربية (دولة فلسطين)</span>-Arabic (State of
+                Palestine)</option>
+              <option value="ar-TN"><span style="direction: rtl;">العربية (تونس)</span>-Arabic (Tunisia)</option>
+              <option value="ar-AE"><span style="direction: rtl;">العربية (الإمارات العربية المتحدة)</span>-Arabic
+                (United Arab Emirates)</option>
+              <option value="hy-AM">Հայերեն-Armenian (Armenia)</option>
+              <option value="az-AZ">Azərbaycan dili-Azerbaijani (Azerbaijan)</option>
+              <option value="eu-ES">Euskara-Basque (Spain)</option>
+              <option value="bn-BD">বাংলা (বাংলাদেশ)-Bengali (Bangladesh)</option>
+              <option value="bn-IN">বাংলা-Bengali (India)</option>
+              <option value="bg-BG">Български-Bulgarian (Bulgaria)</option>
+              <option value="my-MM">မြန်မာဘာသာ-Burmese (Myanmar)</option>
+              <option value="ca-ES">Català-Catalan (Spain)</option>
+              <option value="yue-Hant-HK">中文（香港）-Chinese, Cantonese (Traditional, Hong Kong)</option>
+              <option value="zh">中文(普通话)-Chinese, Mandarin (Simplified, China)</option>
+              <option value="zh-TW">中文(台灣)-Chinese, Mandarin (Traditional, Taiwan)</option>
+              <option value="hr-HR">Hrvatski-Croatian (Croatia)</option>
+              <option value="cs-CZ">Čeština-Czech (Czech Republic)</option>
+              <option value="da-DK">Dansk-Danish (Denmark)</option>
+              <option value="nl-BE">Nederlands (België)-Dutch (Belgium)</option>
+              <option value="nl-NL">Nederlands-Dutch (Netherlands)</option>
+              <option value="en-AU">English (Australia)</option>
+              <option value="en-CA">English (Canada)</option>
+              <option value="en-GH">English (Ghana)</option>
+              <option value="en-IN">English (India)</option>
+              <option value="en-IE">English (Ireland)</option>
+              <option value="en-KE">English (Kenya)</option>
+              <option value="en-NZ">English (New Zealand)</option>
+              <option value="en-NG">English (Nigeria)</option>
+              <option value="en-PH">English (Philippines)</option>
+              <option value="en-SG">English (Singapore)</option>
+              <option value="en-ZA">English (South Africa)</option>
+              <option value="en-TZ">English (Tanzania)</option>
+              <option value="en-GB">English (United Kingdom)</option>
+              <option value="en-US">English (United States)</option>
+              <option value="et-EE">Eesti-Estonian (Estonia)</option>
+              <option value="fil-PH">Pilipino-Filipino (Philippines)</option>
+              <option value="fi-FI">Suomi-Finnish (Finland)</option>
+              <option value="fr-CA">Français (Canada)-French (Canada)</option>
+              <option value="fr-FR">Français (France)-French (France)</option>
+              <option value="gl-ES">Galego-Galician (Spain)</option>
+              <option value="ka-GE">ქართული-Georgian (Georgia)</option>
+              <option value="de-DE">Deutsch-German (Germany)</option>
+              <option value="el-GR">Ελληνικά-Greek (Greece)</option>
+              <option value="gu-IN">ગુજરાતી-Gujarati (India)</option>
+              <option value="he-IL"><span style="direction: rtl;">עברית</span>-Hebrew (Israel)</option>
+              <option value="hi-IN">हिन्दी-Hindi (India)</option>
+              <option value="hu-HU">Magyar-Hungarian (Hungary)</option>
+              <option value="is-IS">Íslenska-Icelandic (Iceland)</option>
+              <option value="id-ID">Bahasa Indonesia-Indonesian (Indonesia)</option>
+              <option value="it-IT">Italiano-Italian (Italy)</option>
+              <option value="ja-JP">日本語-Japanese (Japan)</option>
+              <option value="jv-ID">Basa Jawa-Javanese (Indonesia)</option>
+              <option value="kn-IN">ಕನ್ನಡ-Kannada (India)</option>
+              <option value="km-KH">ភាសាខ្មែរ-Khmer (Cambodia)</option>
+              <option value="ko-KR">한국어-Korean (South Korea)</option>
+              <option value="lo-LA">ພາສາລາວ-Lao (Laos)</option>
+              <option value="lv-LV">Latviešu-Latvian (Latvia)</option>
+              <option value="lt-LT">Lietuvių-Lithuanian (Lithuania)</option>
+              <option value="mk-MK">Македонски-Macedonian (North Macedonia)</option>
+              <option value="ms-MY">Bahasa Melayu-Malay (Malaysia)</option>
+              <option value="ml-IN">മലയാളം-Malayalam (India)</option>
+              <option value="mr-IN">मराठी-Marathi (India)</option>
+              <option value="mn-MN">Монгол-Mongolian (Mongolia)</option>
+              <option value="ne-NP">नेपाली-Nepali (Nepal)</option>
+              <option value="nb-NO">Norsk (bokmål)-Norwegian Bokmål (Norway)</option>
+              <option value="fa-IR"><span style="direction: rtl;">فارسی</span>-Persian (Iran)</option>
+              <option value="pl-PL">Polski-Polish (Poland)</option>
+              <option value="pt-BR">Português (Brasil)-Portuguese (Brazil)</option>
+              <option value="pt-PT">Português (Portugal)-Portuguese (Portugal)</option>
+              <option value="pa-guru-IN">ਪੰਜਾਬੀ-Punjabi (Gurmukhi, India)</option>
+              <option value="ro-RO">Română-Romanian (Romania)</option>
+              <option value="ru-RU">Русский-Russian (Russia)</option>
+              <option value="sr-RS">Српски-Serbian (Serbia)</option>
+              <option value="si-LK">සිංහල-Sinhala (Sri Lanka)</option>
+              <option value="sk-SK">Slovenčina-Slovak (Slovakia)</option>
+              <option value="sl-SI">Slovenščina-Slovenian (Slovenia)</option>
+              <option value="es-AR">Español (Argentina)-Spanish (Argentina)</option>
+              <option value="es-BO">Español (Bolivia)-Spanish (Bolivia)</option>
+              <option value="es-CL">Español (Chile)-Spanish (Chile)</option>
+              <option value="es-CO">Español (Colombia)-Spanish (Colombia)</option>
+              <option value="es-CR">Español (Costa Rica)-Spanish (Costa Rica)</option>
+              <option value="es-DO">Español (República Dominicana)-Spanish (Dominican Republic)</option>
+              <option value="es-EC">Español (Ecuador)-Spanish (Ecuador)</option>
+              <option value="es-SV">Español (El Salvador)-Spanish (El Salvador)</option>
+              <option value="es-GT">Español (Guatemala)-Spanish (Guatemala)</option>
+              <option value="es-HN">Español (Honduras)-Spanish (Honduras)</option>
+              <option value="es-MX">Español (México)-Spanish (Mexico)</option>
+              <option value="es-NI">Español (Nicaragua)-Spanish (Nicaragua)</option>
+              <option value="es-PA">Español (Panamá)-Spanish (Panama)</option>
+              <option value="es-PY">Español (Paraguay)-Spanish (Paraguay)</option>
+              <option value="es-PE">Español (Perú)-Spanish (Peru)</option>
+              <option value="es-PR">Español (Puerto Rico)-Spanish (Puerto Rico)</option>
+              <option value="es-ES">Español (España)-Spanish (Spain)</option>
+              <option value="es-US">Español (Estados Unidos)-Spanish (United States)</option>
+              <option value="es-UY">Español (Uruguay)-Spanish (Uruguay)</option>
+              <option value="es-VE">Español (Venezuela)-Spanish (Venezuela)</option>
+              <option value="su-ID">Sunda (Indonesia)-Sundanese (Indonesia)</option>
+              <option value="sw-KE">Kiswahili (Kenya)-Swahili (Kenya)</option>
+              <option value="sw-TZ">Kiswahili (Tanzania)-Swahili (Tanzania)</option>
+              <option value="sv-SE">Svenska-Swedish (Sweden)</option>
+              <option value="ta-IN">தமிழ்-Tamil (India)</option>
+              <option value="ta-MY">தமிழ் (மலேசியா)-Tamil (Malaysia)</option>
+              <option value="ta-SG">தமிழ் (சிங்கப்பூர்)-Tamil (Singapore)</option>
+              <option value="ta-LK">தமிழ் (இலங்கை)-Tamil (Sri Lanka)</option>
+              <option value="te-IN">తెలుగు-Telugu (India)</option>
+              <option value="th-TH">ภาษาไทย-Thai (Thailand)</option>
+              <option value="tr-TR">Türkçe-Turkish (Turkey)</option>
+              <option value="uk-UA">Українська-Ukrainian (Ukraine)</option>
+              <option value="ur-IN"><span style="direction: rtl;">اردو (بھارت)</span>-Urdu (India)</option>
+              <option value="ur-PK"><span style="direction: rtl;">اردو</span>-Urdu (Pakistan)</option>
+              <option value="uz-UZ">O'zbek-Uzbek (Uzbekistan)</option>
+              <option value="vi-VN">Tiếng Việt-Vietnamese (Vietnam)</option>
+              <option value="zu-ZA">Zulu (South Africa)</option>
+            </select>
+          </p>
+          <p>
+            <label for="subtitle-language-0" class="c150pr i18n" data-i18n="subtitle_lang">Subtitle langauge:</label>
+            <select id="subtitle-language-0">
+              <option value="af">Afrikaans (af)</option>
+              <option value="sq">Shqiptare-Albanian (sq)</option>
+              <option value="am">አማርኛ-Amharic (am)</option>
+              <option value="ar"><span style="direction: rtl;">العربية </span>-Arabic (ar)</option>
+              <option value="hy">Armenian (hy)</option>
+              <option value="az">Azərbaycan dili-Azerbaijani (az)</option>
+              <option value="eu">Euskara-Basque (eu)</option>
+              <option value="be">Беларуская-Belarusian (be)</option>
+              <option value="bn">বাংলা-Bengali (bn)</option>
+              <option value="bs">Bosanski-Bosnian (bs)</option>
+              <option value="bg">Български-Bulgarian (bg)</option>
+              <option value="ca">Català-Catalan (ca)</option>
+              <option value="ceb">Sugbuanon-Cebuano (ceb)</option>
+              <option value="zh-CN">简体中文-Chinese Simplified (Zh-CN)</option>
+              <option value="zh-TW">傳統的中文-Chinese Traditional (zh-TW)</option>
+              <option value="co">Corsu-Corsican (co)</option>
+              <option value="hr">Hrvatski-Croatian (hr)</option>
+              <option value="cs">čeština-Czech (cs)</option>
+              <option value="da">dansk-Danish (da)</option>
+              <option value="nl">Nederlands-Dutch (nl)</option>
+              <option value="en">English (en)</option>
+              <option value="eo">Esperanto (eo)</option>
+              <option value="et">Eesti-Estonian (et)</option>
+              <option value="fi">Suomalainen-Finnish (fi)</option>
+              <option value="fr">Français-French (fr)</option>
+              <option value="fy">Frysk-Frisian (fy)</option>
+              <option value="gl">Galego-Galician (gl)</option>
+              <option value="ka">ქართული-Georgian (ka)</option>
+              <option value="de">Deutsch-German (de)</option>
+              <option value="el">Ελληνικά-Greek (el)</option>
+              <option value="gu">ગુજરાતી-Gujarati (gu)</option>
+              <option value="ht">Kreyòl ayisyen-Haitian Creole (ht)</option>
+              <option value="ha">yaren Hausa-Hausa (ha)</option>
+              <option value="haw">Ōlelo Hawaiʻi-Hawaiian (haw)</option>
+              <option value="he"><span style="direction: rtl;">עברית</span>-Hebrew (he)</option>
+              <option value="hi">हिंदी-Hindi (hi)</option>
+              <option value="hmn">Hmong (hmn)</option>
+              <option value="hu">Magyar-Hungarian (hu)</option>
+              <option value="is">Íslenska-Icelandic (is)</option>
+              <option value="ig">Igbo (ig)</option>
+              <option value="id">orang Indonesia-Indonesian (id)</option>
+              <option value="ga">Gaeilge-Irish (ga)</option>
+              <option value="it">italiano-Italian (it)</option>
+              <option value="ja">日本-Japanese (ja)</option>
+              <option value="jv">Wong jawa-Javanese (jv)</option>
+              <option value="kn">ಕನ್ನಡ-Kannada (kn)</option>
+              <option value="kk">Қазақ-Kazakh (kk)</option>
+              <option value="km">ខ្មែរ-Khmer (km)</option>
+              <option value="rw">Kinyarwanda (rw)</option>
+              <option value="ko">한국어-Korean (ko)</option>
+              <option value="ku">Kurdî-Kurdish (ku)</option>
+              <option value="ky">Кыргызча-Kyrgyz (ky)</option>
+              <option value="lo">ລາວ-Lao (lo)</option>
+              <option value="la">Latine-Latin (la)</option>
+              <option value="lv">Latvietis-Latvian (lv)</option>
+              <option value="lt">Lietuvis-Lithuanian (lt)</option>
+              <option value="lb">Lëtzebuergesch-Luxembourgish (lb)</option>
+              <option value="mk">Македонски-Macedonian (mk)</option>
+              <option value="mg">Malagasy (mg)</option>
+              <option value="ms">Melayu-Malay (ms)</option>
+              <option value="ml">മലയാളം-Malayalam (ml)</option>
+              <option value="mt">Malti-Maltese (mt)</option>
+              <option value="mi">Maori (mi)</option>
+              <option value="mr">मराठी-Marathi (mr)</option>
+              <option value="mn">Монгол-Mongolian (mn)</option>
+              <option value="my">မြန်မာ (မြန်မာ)-Myanmar (Burmese) (my)</option>
+              <option value="ne">नेपाली-Nepali (ne)</option>
+              <option value="no">norsk-Norwegian (no)</option>
+              <option value="ny">Nyanja (Chichewa) (ny)</option>
+              <option value="or">ଓଡିଆ (ଓଡିଆ)-Odia (Oriya) (or)</option>
+              <option value="ps"><span style="direction: rtl;">پښتو</span>-Pashto (ps)</option>
+              <option value="fa"><span style="direction: rtl;">فارسی</span>-Persian (fa)</option>
+              <option value="pl">Polskie-Polish (pl)</option>
+              <option value="pt">Português (Portugal, Brasil)-Portuguese (Portugal, Brazil) (pt)</option>
+              <option value="pa">ਪੰਜਾਬੀ-Punjabi (pa)</option>
+              <option value="ro">Română-Romanian (ro)</option>
+              <option value="ru">Русский-Russian (ru)</option>
+              <option value="sm">Faasamoa-Samoan (sm)</option>
+              <option value="gd">Gàidhlig na h-Alba-Scots Gaelic (gd)</option>
+              <option value="sr">Srpski-Serbian (sr)</option>
+              <option value="st">Sesotho (st)</option>
+              <option value="sn">Shona (sn)</option>
+              <option value="sd"><span style="direction: rtl;">سنڌي</span>-Sindhi (sd)</option>
+              <option value="si">සිංහල (සිංහල)-Sinhala (Sinhalese) (si)</option>
+              <option value="sk">Slovenčina-Slovak (sk)</option>
+              <option value="sl">Slovenščina-Slovenian (sl)</option>
+              <option value="so">Soomaali-Somali (so)</option>
+              <option value="es">Español-Spanish (es)</option>
+              <option value="su">Sundanis-Sundanese (su)</option>
+              <option value="sw">Swahili (sw)</option>
+              <option value="sv">svenska-Swedish (sv)</option>
+              <option value="tl">Tagalog (Filipino) (tl)</option>
+              <option value="tg">Тоҷикӣ-Tajik (tg)</option>
+              <option value="ta">தமிழ்-Tamil (ta)</option>
+              <option value="tt">Татар-Tatar (tt)</option>
+              <option value="te">తెలుగు-Telugu (te)</option>
+              <option value="th">ไทย-Thai (th)</option>
+              <option value="tr">Türk-Turkish (tr)</option>
+              <option value="tk">Türkmenler-Turkmen (tk)</option>
+              <option value="uk">Українська-Ukrainian (uk)</option>
+              <option value="ur"><span style="direction: rtl;">اردو</span>-Urdu (ur)</option>
+              <option value="ug"><span style="direction: rtl;">ئۇيغۇر</span>-Uyghur (ug)</option>
+              <option value="uz">O'zbek-Uzbek (uz)</option>
+              <option value="vi">Tiếng Việt-Vietnamese (vi)</option>
+              <option value="cy">Cymraeg-Welsh (cy)</option>
+              <option value="xh">isiXhosa-Xhosa (xh)</option>
+              <option value="yi"><span style="direction: rtl;">יידיש</span>-Yiddish (yi)</option>
+              <option value="yo">Yoruba (yo)</option>
+              <option value="zu">Zulu (zu)</option>
+            </select>
+          </p>
+        </div>
+        <div id="tabs-aws">
+          <p>
+            <label for="speech-language-1" class="c150pr i18n" data-i18n="lang_video">Language of video: </label>
+            <select id="speech-language-1">
+              <optgroup label="English">
+                <option value="en-US">US English (en-US)</option>
+                <option value="en-AU">Australian English (en-AU)</option>
+                <option value="en-GB">British English (en-GB)</option>
+              </optgroup>
+              <optgroup label="French">
+                <option value="fr-CA">Français canadien-Canadian French (fr-CA)</option>
+                <option value="fr-FR">Français-French (fr-FR)</option>
+              </optgroup>
+              <option value="es-US">Español de Estados Unidos-US Spanish (es-US)</option>
+              <option value="de-DE">Deutsch-German (de-DE)</option>
+              <option value="ja-JP">日本語-Japanese (ja-JP)</option>
+              <option value="ko-KR">한국어-Korean (ko-KR)</option>
+              <option value="pt-BR">Português Brasil-Brazilian Portuguese (pt-BR)</option>
+              <option value="it-IT">italiano-Italian (es-US)</option>
+            </select>
+          </p>
+          <p>
+            <label for="subtitle-language-1" class="c150pr i18n" data-i18n="subtitle_lang">Subtitle langauge:</label>
+            <select id="subtitle-language-1">
+              <option value="af">Afrikaans (af)</option>
+              <option value="sq">Shqiptare-Albanian (sq)</option>
+              <option value="am">አማርኛ-Amharic (am)</option>
+              <option value="ar"><span style="direction: rtl;">العربية </span>-Arabic (ar)</option>
+              <option value="hy">Հայկական-Armenian</option>
+              <option value="az">Azərbaycan dili-Azerbaijani (az)</option>
+              <option value="bn">বাংলা-Bengali (bn)</option>
+              <option value="bs">Bosanski-Bosnian (bs)</option>
+              <option value="bg">Български-Bulgarian (bg)</option>
+              <option value="ca">Català-Catalan</option>
+              <option value="zh">简体中文-Chinese Simplified (Zh-CN)</option>
+              <option value="zh-TW">傳統的中文-Chinese Traditional (zh-TW)</option>
+              <option value="hr">Hrvatski-Croatian (hr)</option>
+              <option value="cs">čeština-Czech (cs)</option>
+              <option value="da">dansk-Danish (da)</option>
+              <option value="fa-AF"><span style="direction: rtl;">فارسی (افغانستان)</span>-Persian (Afghanistan) (fa-AF)
+              </option>
+              <option value="nl">Nederlands-Dutch (nl)</option>
+              <option value="en">English (en)</option>
+              <option value="et">Eesti-Estonian (et)</option>
+              <option value="fa"><span style="direction: rtl;">فارسی</span>-Persian (fa)</option>
+              <option value="tl">Tagalog (Filipino) (tl)</option>
+              <option value="fi">Suomalainen-Finnish (fi)</option>
+              <option value="fr">Français-French (fr)</option>
+              <option value="fr-CA">Français (Canada)-French (Canada) (fr-CA)</option>
+              <option value="ka">ქართული-Georgian (ka)</option>
+              <option value="de">Deutsch-German (de)</option>
+              <option value="el">Ελληνικά-Greek (el)</option>
+              <option value="gu">ગુજરાતી-Gujarati</option>
+              <option value="ht">Kreyòl ayisyen-Haitian Creole</option>
+              <option value="ha">yaren Hausa-Hausa (ha)</option>
+              <option value="he"><span style="direction: rtl;">עברית</span>-Hebrew (he)</option>
+              <option value="hi">हिंदी-Hindi (hi)</option>
+              <option value="hu">Magyar-Hungarian (hu)</option>
+              <option value="is">Íslenska-Icelandic</option>
+              <option value="id">orang Indonesia-Indonesian (id)</option>
+              <option value="it">italiano-Italian (it)</option>
+              <option value="ja">日本-Japanese (ja)</option>
+              <option value="kn">ಕನ್ನಡ-Kannada</option>
+              <option value="kk">Қазақ-Kazakh</option>
+              <option value="ko">한국어-Korean (ko)</option>
+              <option value="lv">Latvietis-Latvian (lv)</option>
+              <option value="lt">Lietuvis-Lithuanian</option>
+              <option value="mk">Македонски-Macedonian</option>
+              <option value="ms">Melayu-Malay (ms)</option>
+              <option value="ml">മലയാളം-Malayalam</option>
+              <option value="mt">Malti-Maltese</option>
+              <option value="mn">Монгол-Mongolian</option>
+              <option value="no">norsk-Norwegian (no)</option>
+              <option value="fa"><span style="direction: rtl;">فارسی</span>-Persian (fa)</option>
+              <option value="ps"><span style="direction: rtl;">پښتو</span>-Pashto (ps)</option>
+              <option value="pl">Polskie-Polish (pl)</option>
+              <option value="pt">Português (Portugal, Brasil)-Portuguese (Portugal, Brazil) (pt)</option>
+              <option value="ro">Română-Romanian (ro)</option>
+              <option value="ru">Русский-Russian (ru)</option>
+              <option value="sr">Srpski-Serbian (sr)</option>
+              <option value="si">සිංහල-Sinhala</option>
+              <option value="sk">Slovenčina-Slovak (sk)</option>
+              <option value="sl">Slovenščina-Slovenian (sl)</option>
+              <option value="so">Soomaali-Somali (so)</option>
+              <option value="es">Español-Spanish (es)</option>
+              <option value="es-MX">Español (México)-Spanish (Mexico)</option>
+              <option value="sw">Swahili (sw)</option>
+              <option value="sv">svenska-Swedish (sv)</option>
+              <option value="tl">Tagalog (Filipino) (tl)</option>
+              <option value="ta">தமிழ்-Tamil (ta)</option>
+              <option value="te">తెలుగు-Telugu</option>
+              <option value="th">ไทย-Thai (th)</option>
+              <option value="tr">Türk-Turkish (tr)</option>
+              <option value="uk">Українська-Ukrainian (uk)</option>
+              <option value="ur"><span style="direction: rtl;">اردو</span>-Urdu (ur)</option>
+              <option value="uz">O'zbek-Uzbek</option>
+              <option value="vi">Tiếng Việt-Vietnamese (vi)</option>
+              <option value="cy">Cymraeg-Welsh</option>
+            </select>
+          </p>
+        </div>
+      </div>
+      <div class="settings-button">
+        <button id="btn_start" class="btn i18n" data-i18n="next">Next</button>
+      </div>
+      <p class="bottom-note i18n" data-i18n="sound_quality">
+        Note: For the good accuracy, ensure that your video has a good sound quality & reduce the resolution of the video if you can.
+      </p>
+    </div>
+  </template>
+
+  <template id="options">
+    <div class="container">
+      <div id="tabs">
+        <ul>
+          <li><a href="#tabs-gcp" class="i18n" data-i18n="gcp"><img class="cloud-icons"
+                src="/icons/google-cloud-x64.png">Google Cloud Platform</a></li>
+          <li><a href="#tabs-aws" class="i18n" data-i18n="aws"><img class="cloud-icons" src="/icons/aws-x64.png">Amazon
+              Web Services</a></li>
+        </ul>
+        <div id="tabs-gcp">
+          <div>
+            <p class="small-caps i18n" data-i18n="gcp_guidelines">
+              Follow the <button class="aslink link-btn"
+                data-href="https://www.auto-subtitle.com/guidelines/gcp/">GUIDELINES</button> to register a Google Cloud
+              Platform(GCP) account and generate a Key in a couple of minutes.
+            </p>
+            <div>
+              <input type="text" id="gcp_key" placeholder="KEY" maxlength="50" size="50"
+                class="pwd-token i18n-placeholder" data-i18n-placeholder="key" />
+            </div>
+          </div>
+        </div>
+        <div id="tabs-aws">
+          <div>
+            <p class="small-caps i18n" data-i18n="aws_guide_lines">
+              Follow the <button class="aslink link-btn"
+                data-href="https://www.auto-subtitle.com/guidelines/aws/">GUIDELINES</button> to register an Amazon Web
+              Services(AWS)
+              account and generate your Access Id and Secret Key in a couple of minutes.
+            </p>
+            <div>
+              <input type="text" id="aws_access_id" placeholder="ACCESS ID" maxlength="30" size="50"
+                class="i18n-placeholder" data-i18n-placeholder="access_id" /><br>
+              <input type="text" id="aws_secret_key" placeholder="SECRET KEY" maxlength="50" size="50"
+                class="pwd-token i18n-placeholder" data-i18n-placeholder="secret_key" /><br>
+              <label for="region" class="i18n" data-i18n="region">Region:</label>
+              <select id="region" class="i18n-title" data-i18n-title="closest_region"
+                title="Choose the region closest to you">
+                <optgroup label="Asia Pacific" class="i18n-label" data-i18n-label="asia_pacific">
+                  <option value="ap-southeast-2" class="i18n" data-i18n="sydney">Sydney</option>
+                  <option value="ap-northeast-2" class="i18n" data-i18n="seoul">Seoul</option>
+                  <option value="ap-northeast-1" class="i18n" data-i18n="tokyo">Tokyo</option>
+                </optgroup>
+                <optgroup label="Europe" class="i18n-label" data-i18n-label="europe">
+                  <option value="eu-central-1" class="i18n" data-i18n="frankfurt">Frankfurt</option>
+                  <option value="eu-west-1" class="i18n" data-i18n="ireland">Ireland</option>
+                  <option value="eu-west-2" class="i18n" data-i18n="london">London</option>
+                </optgroup>
+                <optgroup label="North America" class="i18n-label" data-i18n-label="north_america">
+                  <option value="ca-central-1" class="i18n" data-i18n="canada_central">Canada (Central)</option>
+                  <option value="us-east-1" class="i18n" data-i18n="us_east_n_virginia">US East (N. Virginia)</option>
+                  <option value="us-east-2" class="i18n" data-i18n="us_east_ohio">US East (Ohio)</option>
+                  <option value="us-west-2" class="i18n" data-i18n="us_west_oregon">US West (Oregon)</option>
+                </optgroup>
+                <optgroup label="South America" class="i18n-label" data-i18n-label="south_america">
+                  <option value="sa-east-1" class="i18n" data-i18n="sao_paulo">São Paulo</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="settings-button">
+        <button id="btn_prev" class="btn i18n" data-i18n="prev">Previous</button>
+        <button id="btn_next" class="btn i18n" data-i18n="next">Next</button>
+      </div>
+      <div id="note-0" class="bottom-note" style="display:none;">
+        <span class="i18n" data-i18n="note">Note:</span>
+        <ul>
+          <li class="i18n" data-i18n="gcp_free_quota">After you run out of <button class="aslink link-btn"
+              data-href="https://www.auto-subtitle.com/#free-quota">free quota</button>, you need to pay GCP.</li>
+          <li class="i18n" data-i18n="gcp_delete_key">The KEY will be saved on this computer. If you need to delete it,
+            please remove this extension or delete this KEY on the GCP console to avoid economic losses.</li>
+          <li class="i18n" data-i18n="gcp_may_longer">The length of billing time may be longer than video length. (See
+            <button class="aslink link-btn" data-href="https://www.auto-subtitle.com/faq#may-be-longer">FAQ</button> for
+            details)
+          </li>
+        </ul>
+      </div>
+      <div id="note-1" class="bottom-note" style="display:none;">
+        <span class="i18n" data-i18n="note">Note:</span>
+        <ul>
+          <li class="i18n" data-i18n="aws_free_quota">After you run out of <button class="aslink link-btn"
+              data-href="https://www.auto-subtitle.com/#free-quota">free quota</button>, you need to pay AWS.</li>
+          <li class="i18n" data-i18n="aws_delete_key">These settings will be saved on this computer. If you need to delete
+            it, please remove this extension or
+            delete Access Id & Secret Key on the AWS console to avoid economic losses.</li>
+        </ul>
+      </div>
+    </div>
+  </template>
+  <div id="view"></div>
+  <script src="jquery-3.4.1.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <script src="notify.js"></script>
+  <script src="notify-metro.js"></script>
+  <script src="hideShowPassword.min.js"></script>
+  <script src="video-js.min.js"></script>
+  <script src="video_player.js"></script>
+</body>
+
+</html>

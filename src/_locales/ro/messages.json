@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Folosirea recunoa\u0219terii vorbirii \u0219i a traducerii automate pentru a genera subtitr\u0103ri pentru videoclipuri. V\u0103 ajut\u0103 s\u0103 dep\u0103\u0219i\u021bi barierele lingvistice \u0219i s\u0103 explora\u021bi marginile cuno\u0219tin\u021belor dvs.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Face\u021bi clic pe butonul din partea st\u00e2ng\u0103 a videoclipului.",
+  "description": "Click the button in the left side of the video."
+ }
+}

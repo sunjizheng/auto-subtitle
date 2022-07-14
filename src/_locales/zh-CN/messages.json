@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "\u4f7f\u7528\u8bed\u97f3\u8bc6\u522b\u548c\u673a\u5668\u7ffb\u8bd1\u751f\u6210\u89c6\u9891\u5b57\u5e55\u3002\u5e2e\u52a9\u60a8\u514b\u670d\u8bed\u8a00\u969c\u788d\u5e76\u63a2\u7d22\u77e5\u8bc6\u7684\u4f18\u52bf\u3002",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "\u70b9\u51fb\u89c6\u9891\u5de6\u4fa7\u7684\u6309\u94ae\u3002",
+  "description": "Click the button in the left side of the video."
+ }
+}

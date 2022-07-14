@@ -1,0 +1,10 @@
+{
+	"extensionDescription": {
+		"message": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers.",
+		"description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers."
+	},
+	"clickLeftSideButton": {
+		"message": "Click the button in the left side of the video.",
+		"description": "Click the button in the left side of the video."
+	}
+}

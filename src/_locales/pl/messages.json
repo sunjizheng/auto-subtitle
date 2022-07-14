@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "U\u017cywanie rozpoznawania mowy i t\u0142umaczenia maszynowego do generowania napis\u00f3w do film\u00f3w. Pom\u00f3\u017c pokona\u0107 bariery j\u0119zykowe i zg\u0142\u0119bi\u0107 granice swojej wiedzy.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Kliknij przycisk po lewej stronie wideo.",
+  "description": "Click the button in the left side of the video."
+ }
+}

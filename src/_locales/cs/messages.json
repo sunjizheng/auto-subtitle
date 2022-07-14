@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Generov\u00e1n\u00ed titulk\u016f pro videa pomoc\u00ed rozpozn\u00e1v\u00e1n\u00ed \u0159e\u010di a strojov\u00e9ho p\u0159ekladu. Pom\u016f\u017ee v\u00e1m p\u0159ekonat jazykov\u00e9 bari\u00e9ry a prozkoumat hranice va\u0161ich znalost\u00ed.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Klikn\u011bte na tla\u010d\u00edtko v lev\u00e9 \u010d\u00e1sti videa.",
+  "description": "Click the button in the left side of the video."
+ }
+}

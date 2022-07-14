@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "S\u1eed d\u1ee5ng t\u00ednh n\u0103ng nh\u1eadn d\u1ea1ng gi\u1ecdng n\u00f3i v\u00e0 d\u1ecbch m\u00e1y \u0111\u1ec3 t\u1ea1o ph\u1ee5 \u0111\u1ec1 cho video. Gi\u00fap b\u1ea1n v\u01b0\u1ee3t qua r\u00e0o c\u1ea3n ng\u00f4n ng\u1eef v\u00e0 kh\u00e1m ph\u00e1 c\u00e1c g\u00f3c c\u1ea1nh ki\u1ebfn th\u1ee9c c\u1ee7a b\u1ea1n.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Nh\u1ea5p v\u00e0o n\u00fat \u1edf ph\u00eda b\u00ean tr\u00e1i c\u1ee7a video.",
+  "description": "Click the button in the left side of the video."
+ }
+}

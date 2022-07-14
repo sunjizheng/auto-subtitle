@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Videolar i\u00e7in altyaz\u0131 olu\u015fturmak i\u00e7in konu\u015fma tan\u0131ma ve makine \u00e7evirisini kullanma. Dil engellerini a\u015fman\u0131za ve bilginizin s\u0131n\u0131rlar\u0131n\u0131 ke\u015ffetmenize yard\u0131mc\u0131 olun.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Videonun sol taraf\u0131ndaki d\u00fc\u011fmeyi t\u0131klay\u0131n.",
+  "description": "Click the button in the left side of the video."
+ }
+}

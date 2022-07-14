@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Utilizzo del riconoscimento vocale e della traduzione automatica per generare i sottotitoli per i video. Aiutarti a superare le barriere linguistiche ed esplorare i confini della tua conoscenza.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Fare clic sul pulsante nella parte sinistra del video.",
+  "description": "Click the button in the left side of the video."
+ }
+}

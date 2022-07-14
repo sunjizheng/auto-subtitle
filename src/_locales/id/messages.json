@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Menggunakan pengenalan ucapan dan terjemahan mesin untuk menghasilkan subtitle untuk video. Membantu Anda mengatasi hambatan bahasa dan menjelajahi tepi pengetahuan Anda.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Klik tombol di sisi kiri video.",
+  "description": "Click the button in the left side of the video."
+ }
+}

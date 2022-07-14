@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Runas atpaz\u012b\u0161anas un ma\u0161\u012bntulko\u0161anas izmanto\u0161ana videoklipu subtitru \u0123ener\u0113\u0161anai. Pal\u012bdz\u0113s jums p\u0101rvar\u0113t valodas barjeras un izp\u0113t\u012bt savas zin\u0101\u0161anas.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Noklik\u0161\u0137iniet uz pogas videoklipa kreisaj\u0101 pus\u0113.",
+  "description": "Click the button in the left side of the video."
+ }
+}

@@ -1,0 +1,1 @@
+emcc checks.o spl_init.c vad_core.c vad_filterbank.c vad_gmm.c vad_sp.c webrtc_vad.c resample_48khz.c resample_by_2_internal.c resample_fractional.c division_operations.c energy.c get_scaling_square.c -o wvad.html

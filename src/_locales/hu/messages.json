@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Besz\u00e9dfelismer\u00e9s \u00e9s g\u00e9pi ford\u00edt\u00e1s haszn\u00e1lata feliratok k\u00e9sz\u00edt\u00e9s\u00e9hez vide\u00f3khoz. Seg\u00edthet a nyelvi akad\u00e1lyok lek\u00fczd\u00e9s\u00e9ben \u00e9s a tud\u00e1s sz\u00e9leinek felfedez\u00e9s\u00e9ben.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Kattintson a vide\u00f3 bal oldal\u00e1n tal\u00e1lhat\u00f3 gombra.",
+  "description": "Click the button in the left side of the video."
+ }
+}

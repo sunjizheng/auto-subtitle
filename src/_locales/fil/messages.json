@@ -1,0 +1,10 @@
+{
+	"extensionDescription": {
+		"message": "Paggamit ng pagkilala sa pagsasalita at pagsasalin ng makina upang makabuo ng mga subtitle para sa mga video. Tulungan kang mapagtagumpayan ang mga hadlang sa wika at tuklasin ang mga gilid ng iyong kaalaman.",
+		"description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+	},
+	"clickLeftSideButton": {
+		"message": "I-click ang pindutan sa kaliwang bahagi ng video.",
+		"description": "Click the button in the left side of the video."
+	}
+}

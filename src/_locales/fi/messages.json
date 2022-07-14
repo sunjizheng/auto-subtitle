@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Puheentunnistuksen ja konek\u00e4\u00e4nn\u00f6ksen k\u00e4ytt\u00e4minen tekstitysten luomiseen videoille. Auta sinua voittamaan kielimuurit ja tutkimaan tietosi reunoja.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Napsauta videon vasemmalla puolella olevaa painiketta.",
+  "description": "Click the button in the left side of the video."
+ }
+}

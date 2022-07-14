@@ -1,0 +1,156 @@
+body{
+    background-color: #333333;
+    color: gold;
+    margin:0;
+}
+
+.video-js {
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+.cloud-icons {
+    width:1.5em;
+    vertical-align: middle;
+    margin-right: 0.4em;
+}
+
+label.c150pr {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+}
+
+label.c150pl {
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+}
+
+.vcenter {
+    margin-left: 50vw;
+    transform: translate(-50%);
+}
+
+.vjs-menu-button-popup .vjs-menu
+{
+    width: 20em !important;
+}
+
+#poster {
+    margin-left: 50vw;
+    transform: translate(-50%);
+    max-width: 800px;
+    max-height: 600px;
+    min-width: 640px;
+    min-height: 480px;
+    text-align: center;
+    line-height: 480px;
+}
+
+#sign-with {
+    margin-left: 50vw;
+    transform: translate(-50%);
+    margin-top: 40px;
+}
+
+.settings-button{
+    text-align:right;
+}
+
+.btn {
+    margin:0.5em;
+}
+
+.show-border {
+    border-color: black;
+    border-width: 1px;
+    border-style: dotted;
+}
+
+.link-btn {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.icon_btn {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    cursor: pointer;
+}
+
+.container {
+    margin: 0 auto;
+    width: 600px;
+    min-width: 600px;
+    padding: 20px 0;
+}
+
+.height-line {
+    height: 2.5em;
+}
+
+.bottom-note {
+    position: fixed;
+    bottom: 0;
+    width: 600px;
+    color: gold;
+    margin-bottom: 4em;
+}
+
+select {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+input {
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+fieldset {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.hideShowPassword-toggle {
+    background-color: transparent;
+    background-image: url('/images/wink.png'); /* fallback */
+    background-image: url('/images/wink.svg'), none;
+    background-position: 0 center;
+    background-repeat: no-repeat;
+    border: 2px solid transparent;
+    border-radius: 0.25em;
+    cursor: pointer;
+    font-size: 100%;
+    height: 44px;
+    margin: 0;
+    max-height: 100%;
+    padding: 0;
+    overflow: 'hidden';
+    text-indent: -999em;
+    width: 46px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.hideShowPassword-toggle-hide {
+    background-position: -44px center;
+}
+
+.hideShowPassword-toggle:hover,
+.hideShowPassword-toggle:focus {
+    border-color: #0088cc;
+    outline: transparent;
+}
+
+.vjs-default-skin.vjs-paused .vjs-big-play-button 
+{
+    display: none;
+}

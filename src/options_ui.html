@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <link rel="stylesheet" href="jquery-ui.css">
+  <link rel="stylesheet" href="options_ui.css">
+</head>
+
+<body>
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-gcp" class="i18n" data-i18n="gcp"><img class="cloud-icons" src="/icons/google-cloud-x64.png">Google Cloud Platform</a></li>
+      <li><a href="#tabs-aws" class="i18n" data-i18n="aws"><img class="cloud-icons" src="/icons/aws-x64.png">Amazon Web Services</a></li>
+    </ul>
+    <div id="tabs-gcp">
+      <div>
+        <p class="small-caps i18n" data-i18n="gcp_guidelines">
+          Follow the <button class="aslink link-btn"
+            data-href="https://www.auto-subtitle.com/guidelines/gcp/">GUIDELINES</button> to register a Google Cloud
+          Platform(GCP) account and generate a Key in a couple of minutes.
+        </p>
+        <div>
+          <input type="text" id="gcp_key" placeholder="KEY" maxlength="50" size="50" 
+            class="pwd-token i18n-placeholder" data-i18n-placeholder="key"/>
+        </div>
+      </div>
+      <div id="note-0" class="bottom-note">
+        <span class="i18n" data-i18n="note">Note:</span>
+        <ul>
+          <li class="i18n" data-i18n="gcp_free_quota">After you run out of <button class="aslink link-btn"
+              data-href="https://www.auto-subtitle.com/#free-quota">free quota</button>, you need to pay GCP.</li>
+          <li class="i18n" data-i18n="gcp_delete_key">The KEY will be saved on this computer. If you need to delete it,
+            please remove this extension or delete this KEY on the GCP console to avoid economic losses.</li>
+          <li class="i18n" data-i18n="gcp_may_longer">The length of billing time may be longer than video length. (See
+            <button class="aslink link-btn" data-href="https://www.auto-subtitle.com/faq#may-be-longer">FAQ</button> for
+            details)</li>
+        </ul>
+      </div>
+    </div>
+    <div id="tabs-aws">
+      <div>
+        <p class="small-caps i18n" data-i18n="aws_guide_lines">
+          Follow the <button class="aslink link-btn"
+            data-href="https://www.auto-subtitle.com/guidelines/aws/">GUIDELINES</button> to register an Amazon Web
+          Services(AWS)
+          account and generate your Access Id and Secret Key in a couple of minutes.
+        </p>
+        <div>
+          <input type="text" id="aws_access_id" placeholder="ACCESS ID" maxlength="30" size="50" 
+            class="i18n-placeholder" data-i18n-placeholder="access_id"/><br>
+          <input type="text" id="aws_secret_key" placeholder="SECRET KEY" maxlength="50" size="50"
+            class="pwd-token i18n-placeholder" data-i18n-placeholder="secret_key"/><br>
+          <label for="region" class="i18n" data-i18n="region">Region:</label>
+          <select id="region" class="i18n-title" data-i18n-title="closest_region" title="Choose the region closest to you">
+            <optgroup label="Asia Pacific" class="i18n-label" data-i18n-label="asia_pacific">
+              <option value="ap-southeast-2" class="i18n" data-i18n="sydney">Sydney</option>
+              <option value="ap-northeast-2" class="i18n" data-i18n="seoul">Seoul</option>
+              <option value="ap-northeast-1" class="i18n" data-i18n="tokyo">Tokyo</option>
+            </optgroup>
+            <optgroup label="Europe" class="i18n-label" data-i18n-label="europe">
+              <option value="eu-central-1" class="i18n" data-i18n="frankfurt">Frankfurt</option>
+              <option value="eu-west-1" class="i18n" data-i18n="ireland">Ireland</option>
+              <option value="eu-west-2" class="i18n" data-i18n="london">London</option>
+            </optgroup>
+            <optgroup label="North America" class="i18n-label" data-i18n-label="north_america">
+              <option value="ca-central-1" class="i18n" data-i18n="canada_central">Canada (Central)</option>
+              <option value="us-east-1" class="i18n" data-i18n="us_east_n_virginia">US East (N. Virginia)</option>
+              <option value="us-east-2" class="i18n" data-i18n="us_east_ohio">US East (Ohio)</option>
+              <option value="us-west-2" class="i18n" data-i18n="us_west_oregon">US West (Oregon)</option>
+            </optgroup>
+            <optgroup label="South America" class="i18n-label" data-i18n-label="south_america">
+              <option value="sa-east-1" class="i18n" data-i18n="sao_paulo">São Paulo</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+      <div id="note-1" class="bottom-note">
+        <span class="i18n" data-i18n="note">Note:</span>
+        <ul>
+          <li class="i18n" data-i18n="aws_free_quota">After you run out of <button class="aslink link-btn"
+              data-href="https://www.auto-subtitle.com/#free-quota">free quota</button>, you need to pay AWS.</li>
+          <li class="i18n" data-i18n="aws_delete_key">These settings will be saved on this computer. If you need to delete it, please remove this extension or
+            delete Access Id & Secret Key on the AWS console to avoid economic losses.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="jquery-3.4.1.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <script src="hideShowPassword.min.js"></script>
+  <script src="options_ui.js"></script>
+</body>
+
+</html>

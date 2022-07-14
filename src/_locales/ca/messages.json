@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Utilitzar el reconeixement de veu i la traducci\u00f3 autom\u00e0tica per generar subt\u00edtols per a v\u00eddeos. Us ajudar\u00e0 a superar les barreres ling\u00fc\u00edstiques i a explorar els l\u00edmits del vostre coneixement.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Feu clic al bot\u00f3 que hi ha a la part esquerra del v\u00eddeo.",
+  "description": "Click the button in the left side of the video."
+ }
+}

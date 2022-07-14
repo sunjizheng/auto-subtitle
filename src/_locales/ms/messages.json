@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Menggunakan pengecaman pertuturan dan terjemahan mesin untuk menghasilkan sari kata untuk video. Membantu anda mengatasi halangan bahasa dan meneroka kelebihan pengetahuan anda.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Klik butang di sebelah kiri video.",
+  "description": "Click the button in the left side of the video."
+ }
+}

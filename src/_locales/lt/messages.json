@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Kalbos atpa\u017einimo ir ma\u0161ininio vertimo naudojimas vaizdo \u012fra\u0161\u0173 subtitr\u0173 generavimui. Pad\u0117s jums \u012fveikti kalbos barjerus ir i\u0161tirti savo \u017eini\u0173 prana\u0161umus.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Spustel\u0117kite mygtuk\u0105 kair\u0117je vaizdo \u012fra\u0161o pus\u0117je.",
+  "description": "Click the button in the left side of the video."
+ }
+}

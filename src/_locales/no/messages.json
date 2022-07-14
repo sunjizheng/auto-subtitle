@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Bruker talegjenkjenning og maskinoversettelse for \u00e5 generere undertekster for videoer. Hjelp deg med \u00e5 overvinne spr\u00e5kbarrierer og utforske kantene p\u00e5 kunnskapen din.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Klikk p\u00e5 knappen til venstre i videoen.",
+  "description": "Click the button in the left side of the video."
+ }
+}

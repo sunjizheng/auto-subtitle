@@ -1,0 +1,10 @@
+{
+ "extensionDescription": {
+  "message": "Utilisation de la reconnaissance vocale et de la traduction automatique pour g\u00e9n\u00e9rer des sous-titres pour les vid\u00e9os. Vous aider \u00e0 surmonter les barri\u00e8res linguistiques et \u00e0 explorer les limites de vos connaissances.",
+  "description": "Using speech recognition and machine translation to generate subtitles for videos. Help you overcome language barriers and explore the edges of your knowledge."
+ },
+ "clickLeftSideButton": {
+  "message": "Cliquez sur le bouton sur le c\u00f4t\u00e9 gauche de la vid\u00e9o.",
+  "description": "Click the button in the left side of the video."
+ }
+}
